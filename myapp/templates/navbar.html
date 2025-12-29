@@ -1,0 +1,38 @@
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{% url 'home' %}"><i class="bi bi-clipboard"></i> PAFHRMC</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">HOME</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'registration' %}">REGISTRATION</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'about' %}">ABOUT</a></li>
+                        {% if user.is_superuser %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MORE</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">AFPSAT</a></li>
+                                <li><a class="dropdown-item" href="{% url 'cycle' %}">Recruitment Cycle</a></li>
+                                <li><a class="dropdown-item" href="{% url 'purpose' %}">Purpose</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="{% url 'pc' %}">Processing Centers</a></li>
+                                <li><a class="dropdown-item" href="{% url 'mtf' %}">Treatment Facilities</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                            {% if user.is_superuser %}
+                            <li class="nav-item"><a class="nav-link active" href="{% url 'register_user' %}">REGISTER</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="{% url 'logout_user' %}">LOGOUT</a></li>
+                            {% else %}
+                            <li class="nav-item"><a class="nav-link active" href="{% url 'logout_user' %}">LOGOUT</a></li>
+                            {% endif %}
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link active" href="{% url 'login_user' %}">LOGIN</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>

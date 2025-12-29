@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Processing Centers</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Input Here!</p>
+                </div>
+            </div>
+        </header>      
+        <br><br>
+        <div class="container shadow-sm p-3 mb-5 bg-white rounded">
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'createPc' %}" role="button"><i class="bi bi-plus-circle"></i> NEW PC</a>
+            <div class="row">
+                        <!-- Tables-->
+                        <table class="table table-hover" id="cycleTable">
+                        <thead>
+                            <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">PC CODE</th>
+                             <th scope="col">PC</th>
+                            <th scope="col">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pc in pc %}
+                            <tr>
+                            <td>{{ pc.id }}</td>
+                            <td>{{ pc.pcCode }}</td>
+                            <td>{{ pc.pcName }}</td>
+                            <td>
+                                <a class="btn btn-outline-secondary btn-sm" href="{% url 'updatePc' pc.id %}" role="button">Update</a>
+                                <a class="btn btn-outline-danger btn-sm" href="{% url 'deletePc' pc.id %}" role="button">Delete</a>
+                            </td>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+            </div>
+        </div>
+       <br><br>
+{% endblock %}
+       

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Processing Center</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Input Here!</p>
+                </div>
+            </div>
+        </header>      
+        <br><br>
+        <div class="container">
+            <br><br>
+            <div class="row">
+                <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100rem;">
+                <div class="card-body">
+                <h5 class="card-title">Update Processing Center</h5>
+                <p class="card-text">Update PC here</p>
+                <form  method="POST" action="">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <input type="text" class="form-control"  aria-describedby="emailHelp" name="pcCode" value="{{ pc.pcCode }}" placeholder="PC Code" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control"  aria-describedby="emailHelp" name="pcName" value="{{ pc.pcName }}" placeholder="PC Name" required>
+                    </div>
+                    <input type="submit" value="Update" class="btn btn-secondary"></input>
+                </form>
+            </div>
+            </div>
+            </div>
+        </div>
+       <br><br>
+{% endblock %}
+       

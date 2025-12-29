@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Purpose</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Input Here!</p>
+                </div>
+            </div>
+        </header>      
+        <br><br>
+        <div class="container">
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'createPc' %}" role="button"><i class="bi bi-plus-circle"></i> NEW PURPOSE</a>
+            <div class="row">
+                        <!-- Tables-->
+                        <table class="table table-hover" id="cycleTable">
+                        <thead>
+                            <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">PURPOSE</th>
+                            <th scope="col">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for purpose in purpose %}
+                            <tr>
+                            <td>{{ purpose.id }}</td>
+                            <td>{{ purpose.purpose }}</td>
+                            <td>
+                                <a class="btn btn-outline-secondary btn-sm" href="#" role="button">Update</a>
+                                <a class="btn btn-outline-danger btn-sm" href="#" role="button">Delete</a>
+                            </td>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+            </div>
+        </div>
+       <br><br>
+{% endblock %}
+       

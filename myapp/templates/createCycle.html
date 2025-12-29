@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Recrutiment Cycle</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Input Here!</p>
+                </div>
+            </div>
+        </header>      
+        <br><br>
+        <div class="container">
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'cycle' %}" role="button"><i class="bi bi-skip-backward-circle"></i> BACK</a>
+            <br><br>
+            <div class="row">
+                <!-- Card-->
+                <div class="card" style="width: 100rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Recruitment Cycle</h5>
+                    <p class="card-text">Enter New Recruitment Cycle Here</p>
+                    {% if submitted %}
+                        Registration Saved!!
+                    {% else %}
+                        <!-- Form-->
+                        <form method="POST" action="">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="submit" value="Submit" class="btn btn-primary">
+                        </form>
+                    {% endif %}
+                </div>
+                </div>
+            </div>
+        </div>
+       <br><br>
+{% endblock %}
+       

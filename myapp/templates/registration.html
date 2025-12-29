@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">New Applicant</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Register Here!</p>
+                </div>
+            </div>
+        </header>
+       
+        <br><br>
+        <div class="container">
+                <!-- Card-->
+                <div class="card shadow p-3 mb-5 bg-white rounded">
+                    <div class="card-header">
+                        <h4>PERSONAL INFORMATION</h4>
+                    </div>
+                    <div class="card-body">
+                        {% if submitted %}
+                            Registration Saved!!
+                        {% else %}
+                        <!-- Form-->
+                        <form method="POST" action="">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="submit" value="Submit" class="btn btn-outline-secondary">
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+       <br><br>
+
+{% endblock %}
+       

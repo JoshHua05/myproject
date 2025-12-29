@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Recrutiment Cycle</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Input Here!</p>
+                </div>
+            </div>
+        </header>      
+        <br><br>
+        <div class="container shadow-sm p-3 mb-5 bg-white rounded">
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'createCycle' %}" role="button"><i class="bi bi-plus-circle"></i> NEW CYCLE</a>
+            <div class="row">
+                        <!-- Tables-->
+                        <table class="table table-hover" id="cycleTable">
+                        <thead>
+                            <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">RECRUITMENT CYCLE</th>
+                            <th scope="col">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cycle in cycle %}
+                            <tr>
+                            <td>{{ cycle.id }}</td>
+                            <td>{{ cycle.cycle }}</td>
+                            <td>
+                                <a class="btn btn-outline-danger btn-sm" href="{% url 'deleteCycle' cycle.id %}" role="button">Delete</a>
+                            </td>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+            </div>
+        </div>
+       <br><br>
+{% endblock %}
+       

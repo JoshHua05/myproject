@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Treatment Facilities</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Input Here!</p>
+                </div>
+            </div>
+        </header>      
+        <br><br>
+        <div class="container">
+            <br><br>
+            <div class="row">
+                <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100rem;">
+                <div class="card-body">
+                <h5 class="card-title">Update Military Treatment Facility</h5>
+                <p class="card-text">Update MTF here</p>
+                    <form  method="POST" action="">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="text" class="form-control"  aria-describedby="emailHelp" name="mtfCode" value="{{ mtf.mtfCode }}" placeholder="MTF Code" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control"  aria-describedby="emailHelp" name="mtfName" value="{{ mtf.mtfName }}" placeholder="MTF Name" required>
+                        </div>
+                        <input type="submit" value="Update" class="btn btn-secondary"></input>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <br><br>
+{% endblock %}
+       
